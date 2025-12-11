@@ -35,13 +35,12 @@ export function useWeather() {
   const API_KEY = Constants.expoConfig?.extra?.WEATHER_API_KEY || '';
   const API_BASE_URL = Constants.expoConfig?.extra?.API_BASE_URL || '';
 
-  const apiUrl = location && API_KEY ? `${API_BASE_URL}?lat=${location.latitude}&lon=${location.longitude}&units=metric&appid=${API_KEY}` : null;
+  const apiUrl = location ? `${API_BASE_URL}?lat=${location.latitude}&lon=${location.longitude}&units=metric&appid=${API_KEY}` : null;
 
   const { data: weatherData, loading: weatherLoading, error: weatherError } = useFetch<WeatherData>(apiUrl);
 
   const loading = locationLoading || weatherLoading;
-  const error = locationError || 
-    (weatherError ? (weatherError instanceof Error ? weatherError.message : String(weatherError)) : null);
+  const error = locationError || (weatherError ? (weatherError instanceof Error ? weatherError.message : String(weatherError)) : null);
 
   return { weatherData, loading, error };
 }

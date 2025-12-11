@@ -27,7 +27,7 @@ export default function App() {
   if (!weatherData) {
     return (
       <View style={styles.container}>
-        <Text>Ei säätietoja saatavilla</Text>
+        <Text style={styles.errorText}>No weather data available</Text>
       </View>
     );
   }
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   },
   locationInfo: {
     alignItems: 'center',
-    marginBottom: 8,
+    marginBottom: 12,
   },
   locationName: {
     fontSize: 38,

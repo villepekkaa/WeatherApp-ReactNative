@@ -5,7 +5,7 @@ type Props = {
     title?: string;
 };
 
-export default function Header({ title = 'Current Weather In' }: Props) {
+export default function Header({ title = 'Weather In' }: Props) {
     return (
         <View style={styles.header}>
             <Text style={styles.headerTitle}>{title}</Text>
@@ -17,7 +17,7 @@ export default function Header({ title = 'Current Weather In' }: Props) {
 const styles = StyleSheet.create({
     header: {
         width: '100%',
-        padding: 12,
+        padding: 8,
         alignItems: 'center',
         backgroundColor: '#f8f8f8',
         borderBottomWidth: StyleSheet.hairlineWidth,
