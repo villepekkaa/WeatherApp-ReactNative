@@ -11,7 +11,7 @@ export default function App() {
     return (
       <View style={styles.container}>
         <ActivityIndicator size="large" color="#0000ff" />
-        <Text style={styles.loadingText}>Ladataan...</Text>
+        <Text style={styles.loadingText}>Loading...</Text>
       </View>
     );
   }
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   locationName: {
-    fontSize: 38,
+    fontSize: 32,
     fontWeight: 'bold',
     color: '#333',
   },

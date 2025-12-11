@@ -8,25 +8,20 @@ export function useFetch<T = unknown>(url: string | null) {
 
     useEffect(() => {
         if (!url) {
-            setLoading(false);
-            setError(null);
-            setData(null);
+            const err = new Error(
+                'API_BASE_URL is not configured in expo.extra (app config).Skipping fetch.');
+            setError(err);
             return;
         }
-        
         controllerRef.current?.abort();
-        const controller = new AbortController();
+         const controller = new AbortController();
         controllerRef.current = controller;
-        
         (async () => {
             setLoading(true);
             setError(null);
             try {
                 const res = await fetch(url, { signal: controller.signal });
-                if (!res.ok) {
-                    const errorBody = await res.text();
-                    throw new Error(`API Error ${res.status}: ${errorBody}`);
-                }
+                if (!res.ok) throw new Error(`Network response was not ok: ${res.status} ${res.statusText}`);
                 const json = (await res.json()) as T;
                 if (controllerRef.current === controller) setData(json);
             } catch (err: any) {
