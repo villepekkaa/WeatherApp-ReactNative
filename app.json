@@ -28,7 +28,7 @@
     },
     "extra": {
       "API_BASE_URL": "https://api.openweathermap.org/data/2.5/weather",
-      "WEATHER_API_KEY": "f4922ed1b91596252e4d87ded167867e"
+      "WEATHER_API_KEY": ""
     }
   }
 }
