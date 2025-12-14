@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   locationName: {
-    fontSize: 32,
+    fontSize: 48,
     fontWeight: 'bold',
     color: '#333',
   },

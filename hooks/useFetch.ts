@@ -14,7 +14,7 @@ export function useFetch<T = unknown>(url: string | null) {
             return;
         }
         controllerRef.current?.abort();
-         const controller = new AbortController();
+        const controller = new AbortController();
         controllerRef.current = controller;
         (async () => {
             setLoading(true);
